@@ -1,0 +1,11 @@
+opencv-python
+mtcnn
+sklearn
+tqdm
+numpy
+keras_facenet
+imutils
+pandas
+tensorflow-cpu==2.5.0
+matplotlib
+pytest-shutil
