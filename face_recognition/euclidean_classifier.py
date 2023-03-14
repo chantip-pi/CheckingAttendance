@@ -3,7 +3,6 @@ import pickle
 import numpy as np
 from sklearn.metrics.pairwise import euclidean_distances
 
-
 class EuclideanClassifier(object):
     """
     Euclidean distance classifier

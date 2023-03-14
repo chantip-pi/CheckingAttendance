@@ -2,8 +2,6 @@
 import cv2
 import numpy as np
 import os
-import glob as gl
-import matplotlib.pyplot as plt
 import shutil
 
 #get folder path that contains video, get folder name to save the extracted image

@@ -8,7 +8,6 @@ import cv2
 import imutils
 import math
 import numpy as np
-import tensorflow as tf
 import tqdm
 from keras_facenet import FaceNet
 from mtcnn.mtcnn import MTCNN
@@ -17,7 +16,6 @@ from face_recognition import config
 from face_recognition.euclidean_classifier import EuclideanClassifier
 
 warnings.filterwarnings("ignore")
-
 
 class FaceRecognition(object):
     """
