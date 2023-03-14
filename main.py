@@ -1,10 +1,13 @@
 from modules.sheet_generator import SheetGenerator
-from modules.image_generator import video_to_image
+from modules.image_generator import video_to_image, make_shuffle_dataset
 from face_recognition.camera import open_camera
 
-sheet = SheetGenerator('test', 'output')
-
 print('=== NaHong Attendance System ===')
+
+subject = input('Enter subject name:')
+
+# Instanciate SheetGenerator
+sheet = SheetGenerator(subject, 'sheets')
 
 while(True):
     print('Please select an option: ')
@@ -20,6 +23,10 @@ while(True):
         print('Converting ...')
         video_to_image('videos', 'images')
         print('Converted!')
+        
+        print('Splitting ...')
+        make_shuffle_dataset('images')
+        print('Splitted!')
     if (option == 2):
         pass
     if (option == 3):
@@ -27,4 +34,5 @@ while(True):
     if (option == 4):
         break
 
+# Save file
 sheet.close()
