@@ -140,10 +140,10 @@ def make_shuffle_dataset(foldername):
 
         for i in range(3,5):
             for j in shuffle_split[i]:
-                test_path.append(j)
+                val_path.append(j)
             
         for j in shuffle_split[5]:
-            val_path.append(j)
+            test_path.append(j)
 
     #copy image file to new dataset folder by train_path, test_path,val_path to folder Train ,Test and Val
         for image in train_path: 

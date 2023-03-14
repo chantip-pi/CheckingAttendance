@@ -18,7 +18,7 @@ fr.load(MODEL_PATH)
 capture = cv2.VideoCapture(0)
 while True:    
     ret, frame = capture.read()
-    result = fr.predict(frame, threshold=0.5)
+    result = fr.predict(frame, threshold=0.65)
     file_bytes = np.fromstring(base64.b64decode(result["frame"]), np.uint8)
     frame = cv2.imdecode(file_bytes,1)
     frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB) 

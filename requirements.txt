@@ -6,6 +6,8 @@ numpy
 keras_facenet
 imutils
 pandas
-tensorflow-cpu==2.5.0
 matplotlib
 pytest-shutil
+tensorflow
+scipy
+scikit-learn
