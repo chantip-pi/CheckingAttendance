@@ -95,22 +95,22 @@ def make_shuffle_dataset(foldername):
                 ...
     """
      # delete dir if exist
-    if os.path.exists("Dataset"):
-        shutil.rmtree("Dataset", ignore_errors=False, onerror=None)
+    if os.path.exists("dataset"):
+        shutil.rmtree("dataset", ignore_errors=False, onerror=None)
     
     #make new dataset folder that contain all the data
-    os.mkdir("Dataset")
-    os.mkdir(os.path.join("Dataset", "Train"))
-    os.mkdir(os.path.join("Dataset", "Test"))
-    os.mkdir(os.path.join("Dataset", "Val"))
+    os.mkdir("dataset")
+    os.mkdir(os.path.join("dataset", "train"))
+    os.mkdir(os.path.join("dataset", "test"))
+    os.mkdir(os.path.join("dataset", "val"))
 
-    #make new label folder in Train,Test,Val folder of Dataset   
+    #make new label folder in Train,Test,Val folder of dataset   
     for label in os.listdir(foldername):
-        os.mkdir(os.path.join("Dataset", "Train",label))
+        os.mkdir(os.path.join("dataset", "train", label))
     for label in os.listdir(foldername):
-        os.mkdir(os.path.join("Dataset", "Test",label))
+        os.mkdir(os.path.join("dataset", "test", label))
     for label in os.listdir(foldername):
-        os.mkdir(os.path.join("Dataset", "Val",label))
+        os.mkdir(os.path.join("dataset", "val", label))
 
     #Go through each label folder
     for label in os.listdir(foldername):
@@ -148,19 +148,18 @@ def make_shuffle_dataset(foldername):
     #copy image file to new dataset folder by train_path, test_path,val_path to folder Train ,Test and Val
         for image in train_path: 
             src = image
-            dst = os.path.join("Dataset","Train", label,os.path.basename(image))
+            dst = os.path.join("dataset", "train", label,os.path.basename(image))
             shutil.copyfile(src, dst)
    
         for image in test_path: 
             src = image
-            dst = os.path.join("Dataset","Test", label,os.path.basename(image))
+            dst = os.path.join("dataset", "test", label,os.path.basename(image))
             shutil.copyfile(src, dst)
 
         for image in val_path: 
             src = image
-            dst = os.path.join("Dataset","Val", label,os.path.basename(image))
+            dst = os.path.join("dataset", "val", label,os.path.basename(image))
             shutil.copyfile(src, dst)
-
-
-video_to_image("videos","Images")
-make_shuffle_dataset("Images")
+        
+    if os.path.exists('images'):
+        shutil.rmtree('images', ignore_errors=False, onerror=None)
