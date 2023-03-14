@@ -14,7 +14,7 @@ import requests
 from pprint import pprint
 
 #Settings
-ROOT_FOLDER ="./Datasets/Train/"
+ROOT_FOLDER ="./Dataset/Train/"
 MODEL_PATH = "model_v1.pkl"
 
 #Read Train dataset

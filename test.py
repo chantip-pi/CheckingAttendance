@@ -11,10 +11,10 @@ import cv2
 import base64
 from tqdm import tqdm
 import requests
-from pprint import pprint
+
 
 #Settings
-IMAGE_PATH ="./Datasets/Test1/"
+IMAGE_PATH ="./Dataset/Test/"
 MODEL_PATH = "model_v1.pkl"
 
 #Read Test dataset
@@ -37,7 +37,7 @@ y_test, y_pred, y_scores = [],[],[]
 for idx in tqdm(range(len(test_dataset))):
     path = test_dataset.path.iloc[idx]
     img =  cv2.imread(path)
-    result = fr.predict(img)
+    result = fr.predict(img,threshold=0.5)
     for prediction in result["predictions"]:
         y_pred.append(prediction["person"])
         y_scores.append(prediction["confidence"])
