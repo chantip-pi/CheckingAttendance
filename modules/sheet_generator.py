@@ -39,5 +39,3 @@ class SheetGenerator:
         self.df.to_csv(os.path.join(self.destination, f"{self.fileName}.csv".replace(':', '-')), index=False)
         print("File has been saved")
 
-sheet = SheetGenerator('test', 'sheets')
-sheet.close()
