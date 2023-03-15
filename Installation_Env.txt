@@ -1,4 +1,0 @@
-conda create --name FaceNet
-conda activate FaceNet
-
-pip install -r requirements.txt
