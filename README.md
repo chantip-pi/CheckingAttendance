@@ -8,15 +8,19 @@
 
 **จำเป็นต้องติดตั้ง Conda ก่อน สามารถดูวิธีการติดตั้งได้ที่ https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html#installing-conda-on-a-system-that-has-other-python-installations-or-packages  
   
-ถ้าหากติดตั้ง Conda แล้วให้รันคำสั่งด้านล่างเพื่อทำการสร้าง Environment และติดตั้ง Package
+ถ้าหากติดตั้ง Conda แล้วให้รันคำสั่งด้านล่างเพื่อทำการสร้าง Environment และติดตั้ง Package  
+  
+สร้าง environment
 
 ```sh
-# Create environment
 conda create -n attendance python=3.8
 conda activate attendance
-# Install package
-pip install scikit-learn scipy opencv-python mtcnn tqdm \
-    pandas numpy keras_facenet imutils matplotlib pytest-shutil 
+```
+
+ติดตั้ง package
+
+```sh
+pip install scikit-learn scipy opencv-python mtcnn tqdm pandas numpy keras_facenet imutils matplotlib pytest-shutil 
 ```
 
 ## โครงสร้าง
