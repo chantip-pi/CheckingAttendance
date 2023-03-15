@@ -9,7 +9,7 @@ class SheetGenerator:
     destination: str
     attendanceList: List[Dict]
     
-    def __init__(self, name, destination) -> None:
+    def __init__(self, name: str, destination: str) -> None:
         self.destination = os.path.join(os.getcwd(), destination)
         os.makedirs(self.destination, exist_ok=True)
         self.fileName = name + "_" + self.__getTimeNow__()
@@ -17,14 +17,12 @@ class SheetGenerator:
         
     def __getTimeNow__(self) -> str:
         dt = datetime.now()
-        df = pd.DataFrame()
         return dt.strftime("%d-%m-%Y_%H:%M:%S")
     
 
-    def check(self, id, image) -> None:
+    def check(self, id: str) -> None:
         newStd = {
             'id': id,
-            'image': image,
             'timestamp': self.__getTimeNow__()
         }
         
@@ -36,8 +34,11 @@ class SheetGenerator:
             self.attendanceList.append(newStd)
             print(f"ID:{id} has been added")
     
-    def close(self):
-        self.df = pd.DataFrame(self.attendanceList)
+    def close(self) -> None:
+        self.df = pd.DataFrame(self.attendanceList, columns=['id', 'timestamp'])
         self.df.to_csv(os.path.join(self.destination, f"{self.fileName}.csv"), index=False)
         print("File has been saved")
 
+sheet = SheetGenerator('test', 'sheets')
+# sheet.check('1')
+sheet.close()
