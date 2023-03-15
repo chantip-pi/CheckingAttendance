@@ -38,4 +38,3 @@ class SheetGenerator:
         self.df = pd.DataFrame(self.attendanceList, columns=['id', 'timestamp'])
         self.df.to_csv(os.path.join(self.destination, f"{self.fileName}.csv".replace(':', '-')), index=False)
         print("File has been saved")
-

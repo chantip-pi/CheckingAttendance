@@ -20,7 +20,7 @@ def open_camera(sheet: SheetGenerator):
             id = result["predictions"][0]["person"]
             if (id != 'UNKNOWN'):
                 print(id)
-                sheet.check(id, 'img.jpg')
+                sheet.check(id)
         except:
             pass
         cv2.imshow("frame",frame)
