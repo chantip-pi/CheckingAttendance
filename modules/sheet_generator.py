@@ -36,5 +36,8 @@ class SheetGenerator:
     
     def close(self) -> None:
         self.df = pd.DataFrame(self.attendanceList, columns=['id', 'timestamp'])
-        self.df.to_csv(os.path.join(self.destination, f"{self.fileName}.csv"), index=False)
+        self.df.to_csv(os.path.join(self.destination, f"{self.fileName}.csv".replace(':', '-')), index=False)
         print("File has been saved")
+
+sheet = SheetGenerator('test', 'sheets')
+sheet.close()
